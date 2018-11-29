@@ -14,12 +14,11 @@ class CombinationList:
 
         for i in range(len(items)):  # percorro a lista e fixo o item para as combinacoes
             self.listItemsComb.append([items[i]])
-            for j in range(1, len(items)-i):  # j se refere a quantidade de itens na combinacao alem do fixado
-                for k in range(i+1, len(items)-j+1):  # percorro a lista para a fazer as combinacoes com i limitado por j
-                    comb = [items[i]]
-                    for x in range(j):  # x se refere a quantidade de itens que devo pegar apos posicao k com max j
-                        comb.append(items[k+x])
-                    self.listItemsComb.append(comb)  # adiciono o conjunto com o i, o k e os x's itens apos k
+            for j in range(i+1, len(items)):  # j se refere a posicao do proximo item a se combinar com i
+                comb = [items[i]]
+                for k in range(len(items)-j):  # k se refere a quantidade de itens apos j na combinacao
+                    comb.append(items[j+k])
+                    self.listItemsComb.append(comb[:])  # devo usar comb[:] para nao ter conflito quando atualizar comb
 
 
 lista = CombinationList([4, 5, 6])
