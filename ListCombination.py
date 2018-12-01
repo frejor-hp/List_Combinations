@@ -1,8 +1,11 @@
 # from itertools import combinations
+
+
 class CombinationList:
     def __init__(self, items):
         self.list = items
         self.listItemsComb = [[]]
+        
         '''
         for i in range(len(items)):
             for item in list(combinations(items, i+1)):
