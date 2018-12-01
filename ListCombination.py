@@ -17,11 +17,11 @@ class CombinationList:
             for i in range(lenght):
                 self.listItemsComb.append(self.listItemsComb[i][:] + [item])  # faco a combinacao com as ja feitas antes
 
-    def which_sum_equals_to(self, value, n):
+    def which_sum_equals_to(self, value):
         possibilities = []
 
         for possibilitie in self.listItemsComb:
-            if len(possibilitie) == n and sum(possibilitie) == value:
+            if len(possibilitie) > 0 and sum(possibilitie) == value:
                 possibilities.append(possibilitie)
 
         return possibilities
