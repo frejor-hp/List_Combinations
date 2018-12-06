@@ -21,4 +21,5 @@ class CombinationList:
 
 lista = CombinationList([-25, -10, -7, -3, 2, 4, 8, 10])
 
+print(lista.listItemsComb)
 print(lista.which_sum_equals_to(0))
