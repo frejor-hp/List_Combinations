@@ -9,21 +9,16 @@ class CombinationList:
                 self.listItemsComb.append(self.listItemsComb[i][:] + [item])  # faco a combinacao com as ja feitas antes
 
     def which_sum_equals_to(self, value, n=0):
-        possibilities = []
-
         if n > 0:
-            for possibilitie in self.listItemsComb:
-                if len(possibilitie) == n and sum(possibilitie) == value:
-                    possibilities.append(possibilitie)
+            possibilities = [possibilite for possibilite in self.listItemsComb
+                             if len(possibilite) == n and sum(possibilite) == value]
         else:
-            for possibilitie in self.listItemsComb:
-                if len(possibilitie) > 0 and sum(possibilitie) == value:
-                    possibilities.append(possibilitie)
+            possibilities = [possibilite for possibilite in self.listItemsComb
+                             if len(possibilite) > 0 and sum(possibilite) == value]
 
         return possibilities
 
 
 lista = CombinationList([-25, -10, -7, -3, 2, 4, 8, 10])
 
-print(lista.listItemsComb)
 print(lista.which_sum_equals_to(0))
