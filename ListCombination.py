@@ -8,6 +8,13 @@ class CombinationList:
             for i in range(lenght):
                 self.listItemsComb.append(self.listItemsComb[i][:] + [item])  # faco a combinacao com as ja feitas antes
 
+        '''
+        usando list comprehension
+        
+        for item in items:
+            self.listItemsComb += [self.listItemsComb[i][:] + [item] for i in range(len(self.listItemsComb))]
+        '''
+                
     def which_sum_equals_to(self, value, n=0):
         if n > 0:
             possibilities = [possibilite for possibilite in self.listItemsComb
