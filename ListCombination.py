@@ -14,11 +14,11 @@ class CombinationList:
         for item in items:
             self.listItemsComb += [self.listItemsComb[i][:] + [item] for i in range(len(self.listItemsComb))]
         '''
-                
-    def which_sum_equals_to(self, value, n=0):
-        if n > 0:
+
+    def which_sum_equals_to(self, value, *n):
+        if len(n) > 0:
             possibilities = [possibilite for possibilite in self.listItemsComb
-                             if len(possibilite) == n and sum(possibilite) == value]
+                             if len(possibilite) in n and sum(possibilite) == value]
         else:
             possibilities = [possibilite for possibilite in self.listItemsComb
                              if len(possibilite) > 0 and sum(possibilite) == value]
