@@ -5,14 +5,14 @@ class CombinationList:
 
         for item in items:
             lenght = len(self.combinations)  # preciso salver o tamanho da lista de combinacoes para nao ter conflito
-            for i in range(lenght):
+            for i in xrange(lenght):
                 self.combinations.append(self.combinations[i][:] + [item])  # faco a combinacao com as ja feitas antes
 
         '''
         usando items comprehension
 
         for item in items:
-            self.combinations += [self.combinations[i][:] + [item] for i in range(len(self.combinations))]
+            self.combinations += [self.combinations[i][:] + [item] for i in xrange(len(self.combinations))]
         '''
 
     def which_sum_equals_to(self, value, *n):
