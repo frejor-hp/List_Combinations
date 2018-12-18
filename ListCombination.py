@@ -1,3 +1,18 @@
+from time import time
+from functools import wraps
+
+
+def measure(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time()
+        result = func(*args, **kwargs)
+        print func.__name__, 'took', time() - start
+        return result
+    return wrapper
+
+
+@measure
 class CombinationList:
     def __init__(self, items):
         self.items = items
@@ -8,12 +23,10 @@ class CombinationList:
             for i in xrange(lenght):
                 self.combinations.append(self.combinations[i][:] + [item])  # faco a combinacao com as ja feitas antes
 
-        '''
-        usando items comprehension
+        # usando items comprehension
 
-        for item in items:
-            self.combinations += [self.combinations[i][:] + [item] for i in xrange(len(self.combinations))]
-        '''
+        # for item in items:
+        #     self.combinations += [self.combinations[i][:] + [item] for i in xrange(len(self.combinations))]
 
     def which_sum_equals_to(self, value, *n):
         if len(n) > 0:
