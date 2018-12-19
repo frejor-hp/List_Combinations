@@ -13,9 +13,17 @@ def measure(func):
 
 
 @measure
-class CombinationList:
+class CombinationList(object):
     def __init__(self, items):
         self.items = items
+
+    @property
+    def items(self):
+        return self._items
+
+    @items.setter
+    def items(self, items):
+        self._items = items
         self.combinations = [[]]
 
         for item in items:
@@ -43,3 +51,7 @@ lista = CombinationList([-25, -10, -7, -3, 2, 4, 8, 10])
 
 print(lista.combinations)
 print(lista.which_sum_equals_to(0, 2, 3))
+
+lista.items = range(3)
+
+print lista.combinations
